@@ -204,7 +204,7 @@
                                             <a href="profile.html" class="btn view-btn">View Profile</a>
                                         </div>
                                         <div class="col-6">
-                                            <a href="confirmation" class="btn book-btn">Book Now</a>
+                                            <a href="bookings" class="btn book-btn">Book Now</a>
                                         </div>
                                     </div>
                                 </div>

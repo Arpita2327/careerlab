@@ -48,7 +48,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['user', 'auth'], 'namespace' 
 });
 
 Route::group(['prefix' => 'user', 'middleware' => ['user', 'auth'], 'namespace' => 'user'], function () {
-    Route::get('bookings', [App\Http\Controllers\User\BookingsControllers::class, 'bookings'])->name('user.bookings');
+    Route::get('bookings', [App\Http\Controllers\User\BookingsControllers::class, 'bookings'])->name('user.booking');
 });
 
 Route::group(['prefix' => 'user', 'middleware' => ['user', 'auth'], 'namespace' => 'user'], function () {

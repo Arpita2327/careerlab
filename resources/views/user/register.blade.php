@@ -63,15 +63,38 @@
 								@enderror
 							</div>
 
+
+
+
+
+
 							<div class="form-group">
 								<label for="" class="form-control-label text-md-right">{{ __('Usertype') }}</label>
-								<input id="usertype" type="text" class="form-control @error('usertype') is-invalid @enderror" name="usertype" value="{{ old('usertype') }}" required autocomplete="usertype" autofocus>
-								@error('name')
+
+								<select class="form-control @error('usertype') is-invalid @enderror" name="usertype" value="{{ old('usertype') }}" required autocomplete="usertype" autofocus>
+									<option value="Admin">Admin</option>
+									<option value="User">User</option>
+									<option value="Instructor">Instructor</option>
+
+								</select>
+								@error('usertype')
 								<span class="invalid-feedback" role="alert">
 									<strong>{{ $message }}</strong>
 								</span>
 								@enderror
 							</div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
