@@ -27,10 +27,21 @@ Route::get('/login', [App\Http\Controllers\LoginController::class, 'index'])->na
 
 Auth::routes();
 
+//admin
 Route::group(['prefix'=>'admin','middleware'=>['admin','auth'],'namespace'=>'admin'],function(){
     Route::get('dashboard', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin.dashboard'); 
+
 });
 
+
+//instructor
+
+Route::group(['prefix' => 'instructor', 'middleware' => ['instructor', 'auth'], 'namespace' => 'instructor'], function () {
+    Route::get('dashboard', [App\Http\Controllers\Instructor\InstructorController::class, 'index'])->name('instructor.dashboard');
+});
+
+
+//user
 Route::group(['prefix' => 'user', 'middleware' => ['user', 'auth'], 'namespace' => 'user'], function () {
     Route::get('dashboard', [App\Http\Controllers\User\UserController::class, 'index'])->name('user.dashboard');
     

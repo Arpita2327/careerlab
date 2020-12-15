@@ -22,13 +22,17 @@ class RedirectIfAuthenticated
         
 
         
-            if (Auth::guard($guards)->check() && Auth::user()->role->id==1) {
+            if (Auth::guard($guards)->check() && Auth::user()->user->usertype=='Admin') {
                 return redirect()->route('admin.dashboard');
             }
 
-            elseif (Auth::guard($guards)->check() && Auth::user()->role->id == 2) {
-                return redirect()->route('user.dashboard');
-            }
+            elseif (Auth::guard($guards)->check() && Auth::user()->user->usertype == 'Instructor') {
+                return redirect()->route('instructor.dashboard');
+            } 
+            
+            elseif (Auth::guard($guards)->check() && Auth::user()->user->usertype == 'User') {
+            return redirect()->route('user.dashboard');
+        }
 
             else{
                 return $next($request);
