@@ -39,7 +39,7 @@
     <div class="header-fixed">
         <nav class="navbar navbar-expand-lg header-nav">
             <div class="navbar-header">
-                
+
                 <a href="index-2.html" class="navbar-brand logo">
                     <img src="{{ asset('template')}}/assets/img/logo.png" class="img-fluid" alt="Logo">
                 </a>
@@ -54,7 +54,7 @@
                     </a>
                 </div>
                 <ul class="main-nav">
-                    
+
             </div>
             <ul class="nav header-navbar-rht">
                 <li class="nav-item dropdown has-arrow logged-item">
@@ -69,8 +69,8 @@
                                 <img src="{{ asset('template')}}/assets/img/user/user.jpg" alt="User Image" class="avatar-img rounded-circle">
                             </div>
                             <div class="user-text">
-                                <h6>Jonathan Doe</h6>
-                                <p class="text-muted mb-0">Mentor</p>
+                                <h6>{{Auth:: user()->name}}</h6>
+                                <p class="text-muted mb-0">{{Auth:: user()->usertype}}</p>
                             </div>
                         </div>
                         <a class="dropdown-item" href="dashboard.html">Dashboard</a>

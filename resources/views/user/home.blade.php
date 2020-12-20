@@ -63,7 +63,7 @@
 							</div>
 							<div class="user-text">
 								<h6>{{Auth:: user()->name}}</h6>
-								<p class="text-muted mb-0">{{Auth:: user()->type}}</p>
+								<p class="text-muted mb-0">{{Auth:: user()->usertype}}</p>
 							</div>
 						</div>
 						<a class="dropdown-item" href="dashboard-mentee.html">View profile</a>
@@ -89,7 +89,7 @@
 				<div class="col-md-12 col-12">
 					<nav aria-label="breadcrumb" class="page-breadcrumb">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+							<li class="breadcrumb-item"><a href="">Home</a></li>
 							<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
 						</ol>
 					</nav>
@@ -114,7 +114,7 @@
 
 							<div class="user-info-cont">
 								<h4 class="usr-name">{{Auth:: user()->name}}</h4>
-								<p class="mentor-type">{{Auth:: user()->type}}</p>
+								<p class="mentor-type">{{Auth:: user()->usertype}}</p>
 							</div>
 						</div>
 						<div class="progress-bar-custom">
@@ -126,7 +126,7 @@
 						</div>
 						<div class="custom-sidebar-nav">
 							<ul>
-								<li><a href="dashboard-mentee.html" class="active"><i class="fas fa-home"></i>Dashboard <span><i class="fas fa-chevron-right"></i></span></a></li>
+								<li><a href="dashboard" class="active"><i class="fas fa-home"></i>Dashboard <span><i class="fas fa-chevron-right"></i></span></a></li>
 								<li><a href="change-password.html"><i class=" fas fa-file-signature"></i>Guideline<span><i class="fas fa-chevron-right"></i></span></a></li>
 								<li><a href="blogs"><i class="fas fa-blog"></i>Blogs <span><i class="fas fa-chevron-right"></i></span></a></li>
 								<li><a href="instructorList"><i class="fas fa-clock"></i>{{ __('Bookings') }} <span><i class="fas fa-chevron-right"></i></span></a></li>

@@ -70,7 +70,7 @@
                             </div>
                             <div class="user-text">
                                 <h6>{{Auth:: user()->name}}</h6>
-                                <p class="text-muted mb-0">{{Auth:: user()->type}}</p>
+                                <p class="text-muted mb-0">{{Auth:: user()->usertype}}</p>
                             </div>
                         </div>
                         <a class="dropdown-item" href="dashboard-mentee.html">View profile</a>

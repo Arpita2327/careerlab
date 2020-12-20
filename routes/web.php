@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -28,9 +29,9 @@ Route::get('/login', [App\Http\Controllers\LoginController::class, 'index'])->na
 Auth::routes();
 
 //admin
-Route::group(['prefix'=>'admin','middleware'=>['admin','auth'],'namespace'=>'admin'],function(){
-    Route::get('dashboard', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin.dashboard'); 
-
+Route::group(['prefix'=>'admin','middleware'=>['admin','auth'],'namespace'=>''],function(){
+    Route::get('dashboard', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin.dashboard');
+    Route::resource('category', CategoryController::class);
 });
 
 

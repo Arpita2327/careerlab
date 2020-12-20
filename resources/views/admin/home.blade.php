@@ -40,13 +40,13 @@
                 <a href="index_admin.html" class="logo">
                     <img src="{{ asset('template')}}/assets_admin/img/logo.png" alt="Logo">
                 </a>
-                <a href="index_admin.html" class="logo logo-small">
-                    <img src="{{ asset('template')}}/assets_admin/img/logo-small.png" alt="Logo" width="30" height="30">
+                <a href="index_admin.html" class="logo logo">
+                    <img src="{{ asset('template')}}/assets_admin/img/logo.png" alt="Logo" width="30" height="30">
                 </a>
             </div>
             <!-- /Logo -->
 
-            
+
             <!-- Mobile Menu Toggle -->
             <a class="mobile_btn" id="mobile_btn">
                 <i class="fa fa-bars"></i>
@@ -67,8 +67,8 @@
                                 <img src="{{ asset('template')}}/assets_admin/img/profiles/avatar-12.jpg" alt="User Image" class="avatar-img rounded-circle">
                             </div>
                             <div class="user-text">
-                                <h6>Allen Davis</h6>
-                                <p class="text-muted mb-0">Administrator</p>
+                                <h6>{{Auth:: user()->name}}</h6>
+                                <p class="text-muted mb-0">{{Auth:: user()->usertype}}</p>
                             </div>
                         </div>
                         <a class="dropdown-item" href="profile.html">My Profile</a>
@@ -100,7 +100,7 @@
                             <span><i class="fe fe-home"></i> Home</span>
                         </li>
                         <li class="active">
-                            <a href="index_admin.html"><span>Dashboard</span></a>
+                            <a href="dashboard"><span>Dashboard</span></a>
                         </li>
                         <li class="">
                             <a href="mentor.html"><span>Instructor List</span></a>
@@ -109,9 +109,12 @@
                             <a href="mentee.html"><span>Client List</span></a>
                         </li>
                         <li class="">
+                            <a href="category"><span>Category</span></a>
+                        </li>
+                        <li class="">
                             <a href="booking-list.html"><span>Booking List</span></a>
                         </li>
-                        
+
 
                         <li class="">
                             <a href="settings.html"><span>Settings</span></a>
@@ -203,192 +206,192 @@
                         </div>
                     </div>
                     <div class="col-xl-3 col-sm-6 col-12">
-                        
-                            
-                                <div class="dash-widget-header">
-                                   
-                                       
-                                    </span>
-                                    
-                                </div>
-                                <div class="dash-widget-info">
 
-                                    
-                                </div>
-                           
-                        
+
+                        <div class="dash-widget-header">
+
+
+                            </span>
+
+                        </div>
+                        <div class="dash-widget-info">
+
+
+                        </div>
+
+
                     </div>
                     <div class="col-xl-3 col-sm-6 col-12">
-                        
-                            
-                               
-                                    
-                                    
-                               
-                                <div class="dash-widget-info">
 
-                                    
-                                </div>
-                           
+
+
+
+
+
+                        <div class="dash-widget-info">
+
+
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 col-lg-6">
-
-                        <!-- Sales Chart -->
-                        
-                        <!-- /Sales Chart -->
-
-                    </div>
-                    <div class="col-md-12 col-lg-6">
-
-                        <!-- Invoice Chart -->
-                       
-                        <!-- /Invoice Chart -->
 
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6 d-flex">
-
-                        <!-- Recent Orders -->
-                        <div class="card card-table flex-fill">
-                            <div class="card-header">
-                                <h4 class="card-title">Mentor List</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-hover table-center mb-0">
-                                        <thead>
-                                            <tr>
-                                                <th>Mentor Name</th>
-                                                <th>Course</th>
-                                                
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <h2 class="table-avatar">
-                                                        <a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ asset('template')}}/assets_admin/img/profiles/avatar-08.jpg" alt="User Image"></a>
-                                                        <a href="profile.html">James Amen</a>
-                                                    </h2>
-                                                </td>
-                                                <td>Maths</td>
-                                                
-                                            </tr>
-                                            <tr>
-                                               
-                                                
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Recent Orders -->
-
-                    </div>
-                    <div class="col-md-6 d-flex">
-
-                        <!-- Feed Activity -->
-                        <div class="card  card-table flex-fill">
-                            <div class="card-header">
-                                <h4 class="card-title">Mentee List</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-hover table-center mb-0">
-                                        <thead>
-                                            <tr>
-                                                <th>Mentee Name</th>
-                                                <th>E-mail</th>
-                                                
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <h2 class="table-avatar">
-                                                        <a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ asset('template')}}/assets_admin/img/user/user.jpg" alt="User Image"></a>
-                                                        <a href="profile.html">Jonathan Doe </a>
-                                                    </h2>
-                                                </td>
-                                                <td>8286329170</td>
-                                                
-                                            </tr>
-                                            
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Feed Activity -->
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-
-                        <!-- Recent Orders -->
-                        <div class="card card-table">
-                            <div class="card-header">
-                                <h4 class="card-title">Booking List</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-hover table-center mb-0">
-                                        <thead>
-                                            <tr>
-                                                <th>Mentor Name</th>
-                                                <th>Course</th>
-                                                <th>Mentee Name</th>
-                                                <th>Booking Time</th>
-                                                <th>Status</th>
-                                                
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <h2 class="table-avatar">
-                                                        <a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ asset('template')}}/assets_admin/img/profiles/avatar-08.jpg" alt="User Image"></a>
-                                                        <a href="profile.html">James Amen</a>
-                                                    </h2>
-                                                </td>
-                                                <td>Maths</td>
-                                                <td>
-                                                    <h2 class="table-avatar">
-                                                        <a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ asset('template')}}/assets_admin/img/user/user.jpg" alt="User Image"></a>
-                                                        <a href="profile.html">Jonathan Doe </a>
-                                                    </h2>
-                                                </td>
-                                                <td>9 Nov 2019 <span class="text-primary d-block">11.00 AM - 11.15 AM</span></td>
-                                                <td>
-                                                    <div class="status-toggle">
-                                                        <input type="checkbox" id="status_1" class="check" checked>
-                                                        <label for="status_1" class="checktoggle">checkbox</label>
-                                                    </div>
-                                                </td>
-                                                
-                                            </tr>
-                                            
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Recent Orders -->
-
-                    </div>
-                </div>
-
             </div>
+            <div class="row">
+                <div class="col-md-12 col-lg-6">
+
+                    <!-- Sales Chart -->
+
+                    <!-- /Sales Chart -->
+
+                </div>
+                <div class="col-md-12 col-lg-6">
+
+                    <!-- Invoice Chart -->
+
+                    <!-- /Invoice Chart -->
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 d-flex">
+
+                    <!-- Recent Orders -->
+                    <div class="card card-table flex-fill">
+                        <div class="card-header">
+                            <h4 class="card-title">Mentor List</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover table-center mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Mentor Name</th>
+                                            <th>Course</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <h2 class="table-avatar">
+                                                    <a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ asset('template')}}/assets_admin/img/profiles/avatar-08.jpg" alt="User Image"></a>
+                                                    <a href="profile.html">James Amen</a>
+                                                </h2>
+                                            </td>
+                                            <td>Maths</td>
+
+                                        </tr>
+                                        <tr>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Recent Orders -->
+
+                </div>
+                <div class="col-md-6 d-flex">
+
+                    <!-- Feed Activity -->
+                    <div class="card  card-table flex-fill">
+                        <div class="card-header">
+                            <h4 class="card-title">Mentee List</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover table-center mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Mentee Name</th>
+                                            <th>E-mail</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <h2 class="table-avatar">
+                                                    <a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ asset('template')}}/assets_admin/img/user/user.jpg" alt="User Image"></a>
+                                                    <a href="profile.html"> </a>
+                                                </h2>
+                                            </td>
+                                            <td>8286329170</td>
+
+                                        </tr>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Feed Activity -->
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+
+                    <!-- Recent Orders -->
+                    <div class="card card-table">
+                        <div class="card-header">
+                            <h4 class="card-title">Booking List</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover table-center mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Mentor Name</th>
+                                            <th>Course</th>
+                                            <th>Mentee Name</th>
+                                            <th>Booking Time</th>
+                                            <th>Status</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <h2 class="table-avatar">
+                                                    <a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ asset('template')}}/assets_admin/img/profiles/avatar-08.jpg" alt="User Image"></a>
+                                                    <a href="profile.html">James Amen</a>
+                                                </h2>
+                                            </td>
+                                            <td>Maths</td>
+                                            <td>
+                                                <h2 class="table-avatar">
+                                                    <a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{ asset('template')}}/assets_admin/img/user/user.jpg" alt="User Image"></a>
+                                                    <a href="profile.html">Jonathan Doe </a>
+                                                </h2>
+                                            </td>
+                                            <td>9 Nov 2019 <span class="text-primary d-block">11.00 AM - 11.15 AM</span></td>
+                                            <td>
+                                                <div class="status-toggle">
+                                                    <input type="checkbox" id="status_1" class="check" checked>
+                                                    <label for="status_1" class="checktoggle">checkbox</label>
+                                                </div>
+                                            </td>
+
+                                        </tr>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Recent Orders -->
+
+                </div>
+            </div>
+
         </div>
-        <!-- /Page Wrapper -->
+    </div>
+    <!-- /Page Wrapper -->
 
     </div>
     <!-- /Main Wrapper -->
