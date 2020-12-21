@@ -101,7 +101,7 @@
                             <span><i class="fe fe-home"></i> Home</span>
                         </li>
                         <li class="active">
-                            <a href="dashboard"><span>Dashboard</span></a>
+                            <a href="{{ route('admin.dashboard') }}"><span>Dashboard</span></a>
                         </li>
                         <li class="">
                             <a href="mentor.html"><span>Instructor List</span></a>
@@ -128,10 +128,10 @@
                         <li class="submenu">
                             <a href="#"><span>Blog</span> <span class="menu-arrow"></span></a>
                             <ul style="display: none;">
-                                <li><a class="" href="blog.html"> Blog </a></li>
-                                <li><a class="" href="blog-details.html"> Blog Details </a></li>
-                                <li><a class="" href="add-blog.html"> Add Blog </a></li>
-                                <li><a class="" href="edit-blog.html"> Edit Blog </a></li>
+                                <li><a class="" href="{{ route('post.index') }}"> Blog </a></li>
+                                <li><a class="" href="{{ route('post.index') }}"> Blog Details </a></li>
+                                <li><a class="" href="{{ route('post.create') }}"> Add Blog </a></li>
+                                <li><a class="" href="{{ route('post.index') }}"> Edit Blog </a></li>
                             </ul>
                         </li>
 
