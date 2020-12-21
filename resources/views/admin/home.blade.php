@@ -11,7 +11,8 @@
     <title>Mentoring - Dashboard</title>
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('template')}}/assets_admin/img/favicon.png">
-
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('template')}}/assets_admin/css/bootstrap.min.css">
 

@@ -28,7 +28,8 @@
     <!-- Owl Carousel CSS -->
     <link rel="stylesheet" href="{{ asset('template')}}/assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="{{ asset('template')}}/assets/css/owl.theme.default.min.css">
-
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{ asset('template')}}/assets/css/style.css">
 </head>

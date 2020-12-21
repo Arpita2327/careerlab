@@ -8,13 +8,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>Mentoring - Create Category</title>
+    <title>CareerLabs - Create Category</title>
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('template')}}/assets_admin/img/favicon.png">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('template')}}/assets_admin/css/bootstrap.min.css">
-
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <!-- Fontawesome CSS -->
     <link rel="stylesheet" href="{{ asset('template')}}/assets_admin/css/font-awesome.min.css">
     <!-- Feathericon CSS -->
@@ -114,7 +115,7 @@
                             <span><i class="fe fe-home"></i> Home</span>
                         </li>
                         <li class="">
-                            <a href="dashboard"><span>Dashboard</span></a>
+                            <a href="  {{ route('admin.dashboard') }}"><span>Dashboard</span></a>
                         </li>
                         <li class="">
                             <a href="mentor.html"><span>Instructor List</span></a>
@@ -123,7 +124,7 @@
                             <a href="mentee.html"><span>Client List</span></a>
                         </li>
                         <li class="active">
-                            <a href="category"><span>Category</span></a>
+                            <a href="{{ route('category.create') }}"><span>Category</span></a>
                         </li>
                         <li class="">
                             <a href="booking-list.html"><span>Booking List</span></a>
@@ -171,7 +172,8 @@
                         <div class="col-sm-12">
                             <h3 class="page-title">Create Category</h3>
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('category.index') }}">Category List</a></li>
                                 <li class="breadcrumb-item active">Create Category</li>
                             </ul>
                         </div>
@@ -183,13 +185,22 @@
                     <div class="col-sm-12">
                         <div class="card">
 
-                            <div class="card-body">
-                                <div class="">
-                                    <div class="col-12 col-lg-6 offset-lg-3 col-md-8 offset-md-2">
-                                        <form action="{{ route('category.store') }}" method="POST">
-                                            @csrf
-                                            <div class="card-body">
 
+                            <div class="col-12 col-lg-6 offset-lg-3 col-md-8 offset-md-2">
+                                <form action="{{ route('category.store') }}" method="POST">
+                                    @csrf
+                                    <div class="card-body">
+                                        <div class="card-body">
+                                            <div class="">
+                                                @if ($errors->any())
+                                                <div class="alert alert-danger mt-3 mb-3">
+                                                    <ul class="mb-0">
+                                                        @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                                @endif
                                                 <div class="form-group">
                                                     <label for="name">Category name</label>
                                                     <input type="name" name="name" class="form-control" id="name" placeholder="Enter name">
@@ -203,107 +214,115 @@
                                             <div class="card-footer">
                                                 <button type="submit" class="btn btn-lg btn-primary">Submit</button>
                                             </div>
-                                        </form>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    <!-- /Page Wrapper -->
+
+    <!-- Edit Modal -->
+    <div class="modal fade" id="edit_modal" aria-hidden="true" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="form-content p-2">
+                        <div class="modal-header border-0">
+                            <h4 class="modal-title">Edit</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <form id="update_category" method="post" autocomplete="off" enctype="multipart/form-data" novalidate="novalidate" class="bv-form"><button type="submit" class="bv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
+                                    <input type="hidden" name="csrf_token_name" value="104dbdaf79d7d8e21e4ae9991d166669">
+                                    <div class="form-group">
+                                        <label>Category Name</label>
+                                        <input class="form-control" type="text" value="Painting" name="category_name" id="category_name" data-bv-field="category_name">
+                                        <input class="form-control" type="hidden" value="8" name="category_id" id="category_id">
+                                        <small class="help-block" data-bv-validator="remote" data-bv-for="category_name" data-bv-result="NOT_VALIDATED" style="display: none;">This category name is already exist</small><small class="help-block" data-bv-validator="notEmpty" data-bv-for="category_name" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter category name</small></div>
+                                    <div class="form-group">
+                                        <label>Category Image</label>
+                                        <input class="form-control" type="file" name="category_image" id="category_image">
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <!-- /Page Wrapper -->
-
-        <!-- Edit Modal -->
-        <div class="modal fade" id="edit_modal" aria-hidden="true" role="dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="form-content p-2">
-                            <div class="modal-header border-0">
-                                <h4 class="modal-title">Edit</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <div class="card">
-                                <div class="card-body">
-                                    <form id="update_category" method="post" autocomplete="off" enctype="multipart/form-data" novalidate="novalidate" class="bv-form"><button type="submit" class="bv-hidden-submit" style="display: none; width: 0px; height: 0px;"></button>
-                                        <input type="hidden" name="csrf_token_name" value="104dbdaf79d7d8e21e4ae9991d166669">
-                                        <div class="form-group">
-                                            <label>Category Name</label>
-                                            <input class="form-control" type="text" value="Painting" name="category_name" id="category_name" data-bv-field="category_name">
-                                            <input class="form-control" type="hidden" value="8" name="category_id" id="category_id">
-                                            <small class="help-block" data-bv-validator="remote" data-bv-for="category_name" data-bv-result="NOT_VALIDATED" style="display: none;">This category name is already exist</small><small class="help-block" data-bv-validator="notEmpty" data-bv-for="category_name" data-bv-result="NOT_VALIDATED" style="display: none;">Please enter category name</small></div>
-                                        <div class="form-group">
-                                            <label>Category Image</label>
-                                            <input class="form-control" type="file" name="category_image" id="category_image">
+                                    <div class="form-group">
+                                        <div class="avatar">
+                                            <img class="avatar-img rounded" src="{{ asset('template')}}/assets_admin/img/user/user.jpg" alt="">
                                         </div>
-                                        <div class="form-group">
-                                            <div class="avatar">
-                                                <img class="avatar-img rounded" src="{{ asset('template')}}/assets_admin/img/user/user.jpg" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="mt-4">
-                                            <button class="btn btn-primary" name="form_submit" value="submit" type="submit">Save Changes</button>
-                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                                        </div>
-                                    </form>
-                                </div>
+                                    </div>
+                                    <div class="mt-4">
+                                        <button class="btn btn-primary" name="form_submit" value="submit" type="submit">Save Changes</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- /Edit Modal -->
+    </div>
+    <!-- /Edit Modal -->
 
-        <!-- Delete Model -->
-        <div class="modal fade" id="delete_modal" role="dialog" style="display: none;" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <!--	<div class="modal-header">
+    <!-- Delete Model -->
+    <div class="modal fade" id="delete_modal" role="dialog" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <!--	<div class="modal-header">
 						<h5 class="modal-title">Delete</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>-->
-                    <div class="modal-body">
-                        <div class="form-content p-2">
-                            <h4 class="modal-title">Delete</h4>
-                            <p class="mb-4">Are you sure want to delete?</p>
-                            <button type="button" class="btn btn-primary">Delete </button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                        </div>
+                <div class="modal-body">
+                    <div class="form-content p-2">
+                        <h4 class="modal-title">Delete</h4>
+                        <p class="mb-4">Are you sure want to delete?</p>
+                        <button type="button" class="btn btn-primary">Delete </button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Delete Model -->
-        <!-- jQuery -->
-        <script src="{{ asset('template')}}/assets_admin/js/jquery-3.2.1.min.js"></script>
+    </div>
+    <!-- Delete Model -->
+    <!-- jQuery -->
+    <script src="{{ asset('template')}}/assets_admin/js/jquery-3.2.1.min.js"></script>
 
-        <!-- Bootstrap Core JS -->
-        <script src="{{ asset('template')}}/assets_admin/js/popper.min.js"></script>
-        <script src="{{ asset('template')}}/assets_admin/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Core JS -->
+    <script src="{{ asset('template')}}/assets_admin/js/popper.min.js"></script>
+    <script src="{{ asset('template')}}/assets_admin/js/bootstrap.min.js"></script>
 
-        <!-- Slimscroll JS -->
-        <script src="{{ asset('template')}}/assets_admin/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-        <!-- Form Validation JS -->
-        <script src="{{ asset('template')}}/assets_admin/js/form-validation.js"></script>
+    <!-- Slimscroll JS -->
+    <script src="{{ asset('template')}}/assets_admin/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- Form Validation JS -->
+    <script src="{{ asset('template')}}/assets_admin/js/form-validation.js"></script>
 
-        <!-- Mask JS -->
-        <script src="{{ asset('template')}}/assets_admin/js/jquery.maskedinput.min.js"></script>
-        <script src="{{ asset('template')}}/assets_admin/js/mask.js"></script>
-
-        <!-- Select2 JS -->
-        <script src="{{ asset('template')}}/assets_admin/plugins/select2/js/select2.min.js"></script>
-        <!-- Datatables JS -->
-        <script src="{{ asset('template')}}/assets_admin/plugins/datatables/jquery.dataTables.min.js"></script>
-        <script src="{{ asset('template')}}/assets_admin/plugins/datatables/datatables.min.js"></script>
-        <!-- Custom JS -->
-        <script src="{{ asset('template')}}/assets_admin/js/script.js"></script>
+    <!-- Mask JS -->
+    <script src="{{ asset('template')}}/assets_admin/js/jquery.maskedinput.min.js"></script>
+    <script src="{{ asset('template')}}/assets_admin/js/mask.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        @if(Session::has('success'))
+        toastr.success("{{ Session::get('success') }}");
+        @endif
+        $(document).ready(function() {
+            bsCustomFileInput.init()
+        })
+    </script>
+    <!-- Select2 JS -->
+    <script src="{{ asset('template')}}/assets_admin/plugins/select2/js/select2.min.js"></script>
+    <!-- Datatables JS -->
+    <script src="{{ asset('template')}}/assets_admin/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('template')}}/assets_admin/plugins/datatables/datatables.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ asset('template')}}/assets_admin/js/script.js"></script>
 </body>
 
 <!-- Mirrored from mentoring-laravel.dreamguystech.com/public/admin/categories by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Nov 2020 18:35:18 GMT -->

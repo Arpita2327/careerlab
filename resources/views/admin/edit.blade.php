@@ -115,7 +115,7 @@
                             <span><i class="fe fe-home"></i> Home</span>
                         </li>
                         <li class="">
-                            <a href="dashboard"><span>Dashboard</span></a>
+                            <a href="{{ route('admin.dashboard') }}"><span>Dashboard</span></a>
                         </li>
                         <li class="">
                             <a href="mentor.html"><span>Instructor List</span></a>
@@ -172,7 +172,8 @@
                         <div class="col-sm-12">
                             <h3 class="page-title">Categories</h3>
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href=" {{ route('admin.dashboard') }}">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('category.index') }}">Category List</a></li>
                                 <li class="breadcrumb-item active">Categories</li>
                             </ul>
                         </div>
@@ -181,71 +182,27 @@
                 <!-- /Page Header -->
 
                 <div class="row">
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h4 class="card-title"></h4>
-                                <a href="{{ route('category.create') }}" class="btn btn-primary">Create Category</a>
-                            </div>
+                    <div class="col-12 col-lg-6 offset-lg-3 col-md-8 offset-md-2">
+                        <form action="{{ route('category.update', [$category->id]) }}" method="POST">
+                            @csrf
+                            @method('PUT')
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="datatable table table-hover table-center mb-0">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Name</th>
-                                                <th>Slug</th>
-                                                <th>Post Counnt</th>
 
-                                                <th class="text-right">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @if($categories->count())
-                                            @foreach($categories as $category)
-                                            <tr>
-                                                <td>{{ $category->id }}</td>
-                                                <td>{{ $category->name }}</td>
-                                                <td>{{ $category->slug }}</td>
-                                                <td>
-                                                    {{ $category->id }}
-                                                </td>
-                                                <td class="text-right">
-                                                    <div class="actions">
-                                                        <a href="{{ route('category.edit', [$category->id]) }}" class="btn btn-sm bg-success-light "> <i class="fe fe-pencil"></i>Edit </a>
-
-                                                       
-
-                                                        <form action="{{ route('category.destroy', [$category->id]) }}" class="" method="POST">
-                                                            @method('DELETE')
-                                                            @csrf
-                                                            <button data-toggle="modal" type="submit" class="btn btn-sm bg-danger-light"><i class="fe fe-trash"></i> Delete </button>
-                                                        </form>
-                                                    </div>
-                                                </td>
-
-
-                                            </tr>
-                                            @endforeach
-                                            @else
-                                            <tr>
-                                                <td colspan="5">
-                                                    <h5 class="text-center">No categories found.</h5>
-                                                </td>
-                                            </tr>
-
-                                            @endif
-                                        </tbody>
-                                    </table>
+                                <div class="form-group">
+                                    <label for="name">Category name</label>
+                                    <input type="name" name="name" class="form-control" value="{{ $category->name }}" placeholder="Enter name">
                                 </div>
-                                <div class="card-footer d-flex justify-content-center">
-                                    {{ $categories->links() }}
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Description</label>
+                                    <textarea name="description" id="description" rows="4" class="form-control" placeholder="Enter description"> {{ $category->description }} </textarea>
                                 </div>
                             </div>
-                        </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-lg btn-primary">Update Category</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
-
             </div>
         </div>
         <!-- /Page Wrapper -->
@@ -331,6 +288,7 @@
         <!-- Mask JS -->
         <script src="{{ asset('template')}}/assets_admin/js/jquery.maskedinput.min.js"></script>
         <script src="{{ asset('template')}}/assets_admin/js/mask.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
         <script>
             @if(Session::has('success'))
             toastr.success("{{ Session::get('success') }}");

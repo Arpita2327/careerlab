@@ -31,7 +31,11 @@ Auth::routes();
 //admin
 Route::group(['prefix'=>'admin','middleware'=>['admin','auth'],'namespace'=>''],function(){
     Route::get('dashboard', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin.dashboard');
-    Route::resource('category', CategoryController::class);
+  
+    Route::resources([
+        'category' => CategoryController::class,
+        
+    ]);
 });
 
 
