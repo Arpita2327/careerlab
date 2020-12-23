@@ -73,9 +73,10 @@
 								<label for="" class="form-control-label text-md-right">{{ __('Usertype') }}</label>
 
 								<select class="form-control @error('usertype') is-invalid @enderror" name="usertype" value="{{ old('usertype') }}" required autocomplete="usertype" autofocus>
-									<option value="Admin">Admin</option>
+
 									<option value="User">User</option>
 									<option value="Instructor">Instructor</option>
+									<option value="Admin">Admin</option>
 
 								</select>
 								@error('usertype')

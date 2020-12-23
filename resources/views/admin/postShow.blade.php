@@ -8,16 +8,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <title>CareerLabs - Create Category</title>
+    <title>CareerLabs - User Edit</title>
+    <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('template')}}/assets_admin/img/favicon.png">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('template')}}/assets_admin/css/bootstrap.min.css">
-
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <!-- Fontawesome CSS -->
     <link rel="stylesheet" href="{{ asset('template')}}/assets_admin/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{ asset('template')}}/assets_admin/plugins/fontawesome/css/fontawesome.min.css">
-    <link rel="stylesheet" href="{{ asset('template')}}/assets_admin/plugins/fontawesome/css/all.min.css">
     <!-- Feathericon CSS -->
     <link rel="stylesheet" href="{{ asset('template')}}/assets_admin/css/feathericon.min.css">
     <link rel="stylesheet" href="{{ asset('template')}}/assets_admin/plugins/morris/morris.css">
@@ -27,7 +27,6 @@
     <link rel="stylesheet" href="{{ asset('template')}}/assets_admin/plugins/datatables/datatables.min.css">
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{ asset('template')}}/assets_admin/css/style.css">
-</head>
 </head>
 
 <body>
@@ -85,8 +84,8 @@
                                 <p class="text-muted mb-0">{{Auth:: user()->usertype}}</p>
                             </div>
                         </div>
-                        <a class="dropdown-item" href="profile.html">My Profile</a>
-                        <a class="dropdown-item" href="settings.html">Settings</a>
+                        <a class="dropdown-item" href="">My Profile</a>
+                        <a class="dropdown-item" href="">Settings</a>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
@@ -116,7 +115,7 @@
                             <span><i class="fe fe-home"></i> Home</span>
                         </li>
                         <li class="">
-                            <a href="  {{ route('admin.dashboard') }}"><span>Dashboard</span></a>
+                            <a href="{{ route('admin.dashboard') }}"><span>Dashboard</span></a>
                         </li>
                         <li class="">
                             <a href="mentor.html"><span>Instructor List</span></a>
@@ -125,7 +124,7 @@
                             <a href="mentee.html"><span>Client List</span></a>
                         </li>
                         <li class="">
-                            <a href="{{ route('category.create') }}"><span>Category</span></a>
+                            <a href="{{ route('category.index') }}"><span>Category</span></a>
                         </li>
                         <li class="">
                             <a href="booking-list.html"><span>Booking List</span></a>
@@ -137,16 +136,14 @@
                         </li>
 
 
-                        <li class="">
-                            <a href="profile.html"><span>My Profile</span></a>
-                        </li>
+
                         <li class="submenu">
                             <a href="#"><span>Blog</span> <span class="menu-arrow"></span></a>
                             <ul style="display: none;">
-                                <li><a class="" href="{{ route('post.index') }}"> Blog </a></li>
-                                <li><a class="active" href="admin/post/{post}"> Blog Details </a></li>
+                                <li><a class="active" href="{{ route('post.index') }}"> Blog </a></li>
+                                <li><a class="" href="{{ route('post.index') }}"> Blog Details </a></li>
                                 <li><a class="" href="{{ route('post.create') }}"> Add Blog </a></li>
-                                <li><a class="" href="admin/post/{post}/edit"> Edit Blog </a></li>
+                                <li><a class="" href="{{ route('post.index') }}"> Edit Blog </a></li>
                             </ul>
                         </li>
 
@@ -160,6 +157,8 @@
                 </div>
             </div>
         </div>
+        <!-- /Sidebar -->
+        <!-- /Sidebar -->
         <!-- /Sidebar -->
         <!-- /Sidebar -->
 
@@ -194,8 +193,8 @@
 
                                             <span class="author"><i class="fe fe-user"></i>{{ $post->user->name }}
                                             </span>
-                                            <span class="date"><i class="fas fa-calendar-alt"></i></i>{{ $post->created_at->format('d M, Y') }}</span>
-                                            <span class=""><i class="fas fa-tag"></i>{{ $post->category->name }}
+                                            <span class="date"><i class="fe fe-calendar"></i></i>{{ $post->created_at->format('d M, Y') }}</span>
+                                            <span class=""><i class="fe fe-tag"></i>{{ $post->category->name }}
                                             </span>
                                         </div>
                                         <div class="blog-details-img">

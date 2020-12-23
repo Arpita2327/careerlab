@@ -2,8 +2,12 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProfileUpdateController;
+use App\Http\Controllers\UserblogController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,16 +33,22 @@ Route::get('/login', [App\Http\Controllers\LoginController::class, 'index'])->na
 
 Auth::routes();
 
+
 //admin
 Route::group(['prefix'=>'admin','middleware'=>['admin','auth'],'namespace'=>''],function(){
     Route::get('dashboard', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin.dashboard');
-  
+    
     Route::resources([
         'category' => CategoryController::class,
         'post'=> PostController::class,
+        'users'=> ProfileController::class,
+        'profile' => ProfileUpdateController::class,
         
     ]);
+   
+    
 });
+
 
 
 //instructor
@@ -66,6 +76,16 @@ Route::group(['prefix' => 'user', 'middleware' => ['user', 'auth'], 'namespace' 
     Route::get('confirmation', [App\Http\Controllers\User\ConfirmationController::class, 'index'])->name('user.confirmation');
 });
 
-Route::group(['prefix' => 'user', 'middleware' => ['user', 'auth'], 'namespace' => 'user'], function () {
+Route::group(['prefix' => 'user', 'middleware' => ['user', 'auth'], 'namespace' => ''], function () {
     Route::get('blogs', [App\Http\Controllers\User\BlogsController::class, 'index'])->name('user.blogs');
+
+    Route::resources([
+        
+      
+        'posts' => UserblogController::class,
+
+    ]);
+});
+Route::group(['prefix' => 'user', 'middleware' => ['user', 'auth'], 'namespace' => 'user'], function () {
+    Route::get('about', [App\Http\Controllers\AboutController::class, 'index'])->name('user.about');
 });

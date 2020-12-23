@@ -129,10 +129,10 @@
 							<ul>
 								<li><a href="dashboard" class="active"><i class="fas fa-home"></i>Dashboard <span><i class="fas fa-chevron-right"></i></span></a></li>
 								<li><a href="change-password.html"><i class=" fas fa-file-signature"></i>Guideline<span><i class="fas fa-chevron-right"></i></span></a></li>
-								<li><a href="blogs"><i class="fas fa-blog"></i>Blogs <span><i class="fas fa-chevron-right"></i></span></a></li>
+								<li><a href="{{ route('posts.index') }}"><i class="fas fa-blog"></i>Blogs <span><i class="fas fa-chevron-right"></i></span></a></li>
 								<li><a href="instructorList"><i class="fas fa-clock"></i>{{ __('Bookings') }} <span><i class="fas fa-chevron-right"></i></span></a></li>
 								<li><a href="favourites.html"><i class="fas fa-paper-plane"></i>Contact Us <span><i class="fas fa-chevron-right"></i></span></a></li>
-								<li><a href="favourites.html"><i class="fas fa-users"></i>About Us <span><i class="fas fa-chevron-right"></i></span></a></li>
+								<li><a href="about"><i class="fas fa-users"></i>About Us <span><i class="fas fa-chevron-right"></i></span></a></li>
 
 
 

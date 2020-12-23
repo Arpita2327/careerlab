@@ -103,12 +103,7 @@
                         <li class="active">
                             <a href="{{ route('admin.dashboard') }}"><span>Dashboard</span></a>
                         </li>
-                        <li class="">
-                            <a href="mentor.html"><span>Instructor List</span></a>
-                        </li>
-                        <li class="">
-                            <a href="mentee.html"><span>Client List</span></a>
-                        </li>
+                        
                         <li class="">
                             <a href="category"><span>Category</span></a>
                         </li>
@@ -121,9 +116,9 @@
                             <a href="settings.html"><span>Settings</span></a>
                         </li>
 
-
+                        
                         <li class="">
-                            <a href="profile.html"><span>My Profile</span></a>
+                            <a href="{{ route('users.index') }}"><span>User List</span></a>
                         </li>
                         <li class="submenu">
                             <a href="#"><span>Blog</span> <span class="menu-arrow"></span></a>
@@ -259,14 +254,14 @@
                     <!-- Recent Orders -->
                     <div class="card card-table flex-fill">
                         <div class="card-header">
-                            <h4 class="card-title">Mentor List</h4>
+                            <h4 class="card-title">Student List</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-hover table-center mb-0">
+                              <table class="table table-hover table-center mb-0">
                                     <thead>
                                         <tr>
-                                            <th>Mentor Name</th>
+                                            <th>Instructor Name</th>
                                             <th>Course</th>
 
                                         </tr>
@@ -299,14 +294,14 @@
                     <!-- Feed Activity -->
                     <div class="card  card-table flex-fill">
                         <div class="card-header">
-                            <h4 class="card-title">Mentee List</h4>
+                            <h4 class="card-title">Student List</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-hover table-center mb-0">
                                     <thead>
                                         <tr>
-                                            <th>Mentee Name</th>
+                                            <th>Student Name</th>
                                             <th>E-mail</th>
 
                                         </tr>

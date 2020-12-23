@@ -23,6 +23,7 @@ class PostController extends Controller
     {
         $posts = Post::orderBy('created_at', 'DESC')->paginate(10);
         return view('admin.postIndex', compact('posts'));
+        return view('user.postindex', compact('posts'));
     }
 
     /**
@@ -35,6 +36,7 @@ class PostController extends Controller
       
         $categories = Category::all();
         return view('admin.postCreate', compact('categories'));
+        
     }
 
     /**
